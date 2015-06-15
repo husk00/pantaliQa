@@ -1,5 +1,5 @@
 # pantaliQa
-PantaliQa is a vj program for linux. It is still in heavy development and it is not ready for publication yet. However feel free to download and run this code. 
+PantaliQa is a vj program for linux. It is still in heavy development and it is not ready for publication yet. However feel free to download and run this code. PantaliQa use WX python for the GUI and puredata/gem as video engine. In order to control puredata from python pyata (https://code.google.com/p/pyata/)  was used.
 # requirements
 PantaliQa is developped under Ubuntu 14.04 with unity 7 as WM.
 
