@@ -1,0 +1,15 @@
+#N canvas 5 82 450 300 10;
+#X obj 123 23 mrpeach/unpackOSC;
+#X obj 123 46 s /q/osc/in;
+#X obj 123 1 mrpeach/udpreceive \$1;
+#X obj 121 73 spigot 0;
+#X obj 120 96 print;
+#X obj 177 73 r /q/debug;
+#N canvas 249 152 746 486 osc 0;
+#X obj 363 39 ./libs/kollabs/osc_r q /q/debug;
+#X restore 312 -3 pd osc;
+#X connect 0 0 1 0;
+#X connect 0 0 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 5 0 3 1;

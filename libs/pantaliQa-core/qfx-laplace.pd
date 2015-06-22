@@ -1,0 +1,87 @@
+#N canvas -46 215 857 300 10;
+#X msg 150 175 1 0.3 0.4 0.5;
+#X floatatom 250 143 5 0 0 0 - - -, f 5;
+#X obj 69 56 inlet;
+#X obj 69 257 outlet;
+#X msg 141 154 0.7 0.9 0.2 0.5;
+#X msg 134 134 0.4 1 0.2 0.9 0.3;
+#X obj 250 76 i;
+#X obj 279 76 + 1;
+#X obj 250 28 tgl 15 0 empty vLap2 empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 250 49 metro 50;
+#X obj 163 22 vsl 17 51 0 1 0 0 empty R1 empty 0 -9 0 10 -258113 -1
+-1 1200 1;
+#X obj 186 23 vsl 17 51 0 1 0 0 empty G1 empty 0 -9 0 10 -4034 -1 -1
+2400 1;
+#X obj 209 23 vsl 17 51 0 1 0 0 empty B1 empty 0 -9 0 10 -4032 -1 -1
+1500 1;
+#X obj 154 92 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 69 235 libs/glsl/qfx laplace;
+#X msg 349 201 width \$1;
+#X obj 126 115 pack 0 0 0 1;
+#X obj 372 66 inlet;
+#X msg 306 233 offset \$1 \$2 \$3 1;
+#N canvas 190 379 392 196 init 0;
+#X obj 81 -236 loadbang;
+#X obj 81 -212 list append \$1;
+#X msg 81 -185 \; /q/qfx/laplace/\$1/auto 0 \; /q/qfx/laplace/\$1/width
+10 \; /q/qfx/laplace/\$1/color 1 0 0 \; /q/qfx/laplace/\$1/active 1
+\;;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 553 85 pd init;
+#N canvas 148 87 633 305 osc 0;
+#X obj 178 55 libs/kollabs/osc_bi q /q/qfx/laplace/\$1/auto;
+#X obj 177 75 libs/kollabs/osc_bi q /q/qfx/laplace/\$1/color;
+#X obj 176 93 libs/kollabs/osc_bi q /q/qfx/laplace/\$1/width;
+#X obj 175 110 libs/kollabs/osc_bi q /q/qfx/laplace/\$1/activate;
+#X restore 553 61 pd osc;
+#X obj 350 154 r /q/qfx/laplace/\$1/width;
+#X obj 308 177 r /q/qfx/laplace/\$1/color;
+#X obj 250 6 r /q/qfx/laplace/\$1/auto;
+#X obj 250 96 mod 100;
+#X obj 447 118 * 100;
+#X obj 9 189 spigot 0;
+#X obj 83 193 spigot 1;
+#X obj 51 167 expr 1-$f1;
+#X obj 372 89 route color auto width active;
+#X obj -74 146 r /q/qfx/laplace/\$1/active;
+#X connect 0 0 18 0;
+#X connect 1 0 15 0;
+#X connect 2 0 27 0;
+#X connect 2 0 26 0;
+#X connect 4 0 18 0;
+#X connect 5 0 18 0;
+#X connect 6 0 7 0;
+#X connect 6 0 24 0;
+#X connect 7 0 6 1;
+#X connect 8 0 9 0;
+#X connect 9 0 6 0;
+#X connect 10 0 16 0;
+#X connect 11 0 13 0;
+#X connect 11 0 16 1;
+#X connect 12 0 13 0;
+#X connect 12 0 16 2;
+#X connect 13 0 16 0;
+#X connect 14 0 3 0;
+#X connect 15 0 14 1;
+#X connect 16 0 18 0;
+#X connect 17 0 29 0;
+#X connect 18 0 14 1;
+#X connect 21 0 15 0;
+#X connect 22 0 18 0;
+#X connect 23 0 8 0;
+#X connect 24 0 1 0;
+#X connect 25 0 15 0;
+#X connect 26 0 3 0;
+#X connect 27 0 14 0;
+#X connect 28 0 26 1;
+#X connect 29 0 18 0;
+#X connect 29 1 8 0;
+#X connect 29 2 25 0;
+#X connect 29 3 28 0;
+#X connect 29 3 27 1;
+#X connect 30 0 28 0;
+#X connect 30 0 27 1;
